@@ -2,7 +2,7 @@
 
 This code is built off of part 1, however it is now saved too a database, and has 2 additional tests. One to check the number of data items retrieved and another to create a new 
 empty database, that runs a table creation function, then saves the data to the database method to check to see that the database contains the test university that has been put 
-there. Along with workflow updates.
+there. Along with workflow updates, requirements.txt added as well as API_KEY.
 
 the database has been created in such a table that it follows similar but more clear structure to part 1.
 It gets the data for all universities with degrees of type 2 and 3.
