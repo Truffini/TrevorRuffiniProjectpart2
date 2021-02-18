@@ -1,4 +1,3 @@
-import APImain
 import sqlite3
 from typing import Tuple
 
@@ -14,30 +13,31 @@ def close_db(connection: sqlite3.Connection):
     connection.close()
 
 
-def addtodatabase(all_data):
-    c = APImain.conn.cursor()
-    print("data count :", len(all_data))
-    c.execute('''CREATE TABLE IF NOT EXISTS school_data
-                            (
-                                school_name text,
-                                school_city text,
-                                student_size_2017 real,
-                                student_size_2018 real,
-                                earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017 real,
-                                repayment_3_yr_repayment_overall_2016 real
-                            )'''
-              )
+def setup_db(cursor: sqlite3.Cursor):
+    cursor.execute('''CREATE TABLE IF NOT EXISTS school_data
+                               (
+                                   school_name text,
+                                   school_city text,
+                                   student_size_2017 real,
+                                   student_size_2018 real,
+                                   earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017 real,
+                                   repayment_3_yr_repayment_overall_2016 real
+                               )'''
+                   )
 
 
-def add_school(cursor: sqlite3.Cursor):
-    cursor.execute(f'''INSERT INTO SCHOOL_LIST (school_name, school_city, student_size_2017,  student_size_2018, 
-    earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017, repayment_3_yr_repayment_overall_2016)
-        VALUES('BSU', 'Braintree', 12345, 123456, 3, 4)
-        ''')
+def add_new_school(cursor: sqlite3.Cursor):
+    cursor.execute(f'''INSERT INTO SCHOOL_DATA (school_name, school_city, student_size_2017, student_size_2018, earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017, repayment_3_yr_repayment_overall_2016)
+            VALUES('BSU', 'Braintree', 1, 2, 3, 4)
+            ''')
 
 
 def main():
-    conn, cursor = open_db("data1.db")
-    addtodatabase(cursor)
-    add_school(cursor)
+    conn, cursor = open_db("test_db.sqlite")
+    setup_db(cursor)
+    add_new_school(cursor)
     close_db(conn)
+
+
+if __name__ == '__main__':
+    main()
