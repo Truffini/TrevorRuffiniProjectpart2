@@ -1,5 +1,6 @@
 import sqlite3
 from typing import Tuple
+import APImain
 
 
 def open_db(filename: str) -> Tuple[sqlite3.Connection, sqlite3.Cursor]:
@@ -27,15 +28,21 @@ def setup_db(cursor: sqlite3.Cursor):
 
 
 def add_new_school(cursor: sqlite3.Cursor):
-    cursor.execute(f'''INSERT INTO SCHOOL_DATA (school_name, school_city, student_size_2017, student_size_2018, earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017, repayment_3_yr_repayment_overall_2016)
+    cursor.execute(f'''INSERT INTO SCHOOL_DATA (school_name, school_city, student_size_2017, student_size_2018, 
+    earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017, repayment_3_yr_repayment_overall_2016)
             VALUES('BSU', 'Braintree', 1, 2, 3, 4)
             ''')
 
 
-def main():
-    conn, cursor = open_db("test_db.sqlite")
-    setup_db(cursor)
+def test_get_data2(cursor):
+    APImain.main()
     add_new_school(cursor)
+
+
+def main():
+    conn, cursor = open_db("data.db")
+    setup_db(cursor)
+    test_get_data2(cursor)
     close_db(conn)
 
 

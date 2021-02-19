@@ -3,10 +3,12 @@ import math
 import requests
 import secrets
 
-url = f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2," \
-      f"3&fields=school.name,school.city,2018.student.size,2017.student.size," \
-      f"017.earnings.3_yrs_after_completion.overall_count_over_poverty_line," \
-      f"2016.repayment.3_yr_repayment.overall&api_key={secrets.api_key} "
+
+url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded"
+       f".predominant=2,3&fields=school.name,school.city,2018.student.size,2017.student.size,"
+       f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
+       f"2016.repayment.3_yr_repayment.overall&api_key={secrets.api_key}")
+
 fields = ",".join([
     "school.name",
     "school.city",
@@ -52,7 +54,7 @@ def get_data():
     return all_data
 
 
-def addtodatabase(all_data):
+def add_to_database(all_data):
     c = conn.cursor()
     print("data count :", len(all_data))
     c.execute('''CREATE TABLE IF NOT EXISTS school_data
@@ -66,7 +68,7 @@ def addtodatabase(all_data):
                             )'''
               )
 
-    c.executemany('INSERT OR REPLACE INTO school_data VALUES (?,?,?,?,?,?)', all_data)
+    c.executemany('INSERT INTO school_data VALUES (?,?,?,?,?,?)', all_data)
     conn.commit()
     c = conn.cursor()
 
@@ -76,7 +78,7 @@ def addtodatabase(all_data):
 
 def main():
     all_data = get_data()
-    addtodatabase(all_data)
+    add_to_database(all_data)
 
 
 if __name__ == '__main__':
