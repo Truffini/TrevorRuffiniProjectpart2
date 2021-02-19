@@ -15,7 +15,7 @@ school.city
 2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line
 2016.repayment.3_yr_repayment.overall
 
-
+key error 'metadata' in test 1 and fixture 'cursor' not found error in test two only on github both working fine on pycharm/pytest.
 I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
 in this repository.
 
