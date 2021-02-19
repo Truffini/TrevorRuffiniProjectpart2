@@ -15,7 +15,7 @@ school.city
 2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line
 2016.repayment.3_yr_repayment.overall
 
-The only issues faced with the code was when test were being applied I began to get a key error on 'metadata' I suspect there may have been an API issue. 
-I also have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
+
+I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
 in this repository.
-In test one there are two different ways the number of items retrieved is tested mostly so I could check my work whileI  had 'metadata' issue and some hard code in test 2.
+
