@@ -50,13 +50,13 @@ def get_data():
             )
             total_fetch_result += 1
             all_data.append(item_data)
-    print("[fetched items]: ", total_fetch_result)
+    print("fetched items: ", total_fetch_result)
     return all_data
 
 
 def add_to_database(all_data):
     c = conn.cursor()
-    print("data count :", len(all_data))
+    c.execute('''DROP TABLE IF EXISTS school_data;''')
     c.execute('''CREATE TABLE IF NOT EXISTS school_data
                             (
                                 school_name text,
@@ -73,7 +73,7 @@ def add_to_database(all_data):
     c = conn.cursor()
 
     c.execute('SELECT count(*) FROM school_data')
-    print(c.fetchone()[0], "Items inserted to the database")
+    print(c.fetchone()[0], "total items inserted to the database")
 
 
 def main():
