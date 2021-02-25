@@ -27,7 +27,7 @@ there has also been added tests to check if tjhe method to read from the xlsx fi
 testing if all 50 states are included and to make sure it gets the right number of major occupational groups.
 along with othere test that check to see if the old and new tables are still there and writing.
 
-key error 'metadata' in test 1 and fixture 'cursor' not found error in test two only on github 'metadata' error only on github.
+key error 'metadata' in test_get_data, test_api_table fixture and 'cursor' not found error in test_database github 'metadata' error only on github.
 I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
 in this repository.
 
