@@ -15,7 +15,20 @@ school.city
 2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line
 2016.repayment.3_yr_repayment.overall
 
-key error 'metadata' in test 1 and fixture 'cursor' not found error in test two only on github both working fine on pycharm/pytest.
+I have added sprint three, which takes in data from an excel sheet, adding the new table emp_data to our original database, it shows the following statistics(as DB row)
+for each state (including territories).
+
+the state
+the occupation major title
+the total employment in that field in that state
+the 25th percentile salary (lets assume that most college grads earn in the lower 25%) for that field both hourly and annual
+
+there has also been added tests to check if tjhe method to read from the xlsx file works properly.
+testing if all 50 states are included and to make sure it gets the right number of major occupational groups.
+along with othere test that check to see if the old and new tables are still there and writing.
+
+key error 'metadata' in test 1 and fixture 'cursor' not found error in test two only on github 'metadata' error only on github.
 I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
 in this repository.
+
 
