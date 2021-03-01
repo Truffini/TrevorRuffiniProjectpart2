@@ -12,10 +12,12 @@ url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees
 fields = ",".join([
     "school.name",
     "school.city",
+    "school.state",
     "2018.student.size",
     "2017.student.size",
     "2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line",
     "2016.repayment.3_yr_repayment.overall",
+    "2016.repayment.repayment_cohort.3_year_declining_balance"
 ])
 
 conn = sqlite3.connect("data.db")
@@ -43,10 +45,12 @@ def get_data():
             item_data = (
                 item["school.name"],
                 item["school.city"],
+                item["school.state"],
                 item["2017.student.size"],
                 item["2018.student.size"],
                 item["2016.repayment.3_yr_repayment.overall"],
-                item["2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line"]
+                item["2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line"],
+                item["2016.repayment.repayment_cohort.3_year_declining_balance"]
             )
             total_fetch_result += 1
             all_data.append(item_data)
@@ -61,14 +65,16 @@ def add_to_database(all_data):
                             (
                                 school_name text,
                                 school_city text,
+                                school_state text,
                                 student_size_2017 real,
                                 student_size_2018 real,
                                 earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017 real,
-                                repayment_3_yr_repayment_overall_2016 real
+                                repayment_3_yr_repayment_overall_2016 real,
+                                repayment_repayment_cohort_3_year_declining_balance_2016 real
                             )'''
               )
 
-    c.executemany('INSERT INTO school_data VALUES (?,?,?,?,?,?)', all_data)
+    c.executemany('INSERT INTO school_data VALUES (?,?,?,?,?,?,?,?)', all_data)
     conn.commit()
     c = conn.cursor()
 
