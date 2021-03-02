@@ -48,3 +48,16 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+def test_add_school(all_data):
+    conn = sqlite3.connect("data1.db")
+    c = conn.cursor()
+    APImain.get_data()
+    APImain.add_to_database(all_data)
+
+    c.execute((f'''INSERT INTO SCHOOL_DATA (school_name, school_city, student_size_2017, student_size_2018,
+    earnings_3_yrs_after_completion_overall_count_over_poverty_line_2017, repayment_3_yr_repayment_overall_2016)
+    VALUES('BSU', 'Braintree', 1, 2, 3, 4)        '''))
+
+    conn.commit()
