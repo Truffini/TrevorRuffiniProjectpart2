@@ -29,7 +29,7 @@ along with othere test that check to see if the old and new tables are still the
 
 key error 'metadata' in test_get_data, 'metadata' error only on github.
 fixture error in test_database
-I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed.
+need to make sure all variables are clear
 
 
 
