@@ -25,7 +25,7 @@ conn = sqlite3.connect("data.db")
 
 def get_data():
     all_data = []
-    response = requests.get(f"{url}&fields={fields}&api_key={secrets}&per_page={100}")
+    response = requests.get(f"{url}&fields={fields}&per_page={100}")
     page_of_data = response.json()
     total_res = page_of_data['metadata']['total']
     items_per_page = page_of_data['metadata']['per_page']
