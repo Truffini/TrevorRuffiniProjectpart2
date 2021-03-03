@@ -23,12 +23,13 @@ the occupation major title
 the total employment in that field in that state
 the 25th percentile salary (lets assume that most college grads earn in the lower 25%) for that field both hourly and annual
 
-there has also been added tests to check if tjhe method to read from the xlsx file works properly.
+there has also been added tests to check if the method to read from the xlsx file works properly.
 testing if all 50 states are included and to make sure it gets the right number of major occupational groups.
 along with othere test that check to see if the old and new tables are still there and writing.
 
-key error 'metadata' in test_get_data, test_api_table fixture and 'cursor' not found error in test_database github 'metadata' error only on github.
-I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed 
-in this repository.
+key error 'metadata' in test_get_data, 'metadata' error only on github.
+fixture error in test_database
+I have put this in a seperate repository because in part one I made a mistake discussed in office hours while creating the repository and could not push although now fixed.
+
 
 
