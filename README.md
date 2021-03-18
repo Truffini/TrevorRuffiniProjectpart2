@@ -25,11 +25,23 @@ the 25th percentile salary (lets assume that most college grads earn in the lowe
 
 there has also been added tests to check if the method to read from the xlsx file works properly.
 testing if all 50 states are included and to make sure it gets the right number of major occupational groups.
-along with othere test that check to see if the old and new tables are still there and writing.
+along with other tests that check to see if the old and new tables are still there and writing.
 
-key error 'metadata' in test_get_data, 'metadata' error only on github.
-fixture error in test_database
-need to make sure all variables are clear
+I have refactored the database to include
+the school.state
+the 2016.repayment.repayment_cohort.3_year_declining_balance
+as well as the existing data that you are already retrieving.
+
+I have also created a GUI so that users can interact with the project more naturally
+When the program first starts up with the GUI it allows the user to choose to either
+update the data
+run the data visualization
+When updating the data is chosen
+the project lets the user choose the file name for the excel file
+When data visualization is chosen
+it provides the user the ability to do two forms of data analysis
+The first analysis displays the data in a color coded text format as a list in ascending or descending order  chosen by user
+The second renders maps to visualize the data.
 
 
 

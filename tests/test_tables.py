@@ -4,10 +4,10 @@ conn = sqlite3.connect("data.db")
 
 
 def test_tables_in_database():
-    c = conn.cursor()
-    c.execute("select * from SQLite_master")
+    cursor = conn.cursor()
+    cursor.execute("select * from SQLite_master")
 
-    tables = c.fetchall()
+    tables = cursor.fetchall()
 
     for table in tables:
         print("Table Name: %s" % (table[2]))

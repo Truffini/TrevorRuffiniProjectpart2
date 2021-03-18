@@ -3,7 +3,6 @@ import math
 import requests
 import secrets
 
-
 url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded"
        f".predominant=2,3&fields=school.name,school.city,2018.student.size,2017.student.size,"
        f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
@@ -62,10 +61,11 @@ def get_data():
     return all_data
 
 
-def add_to_database(all_data):
-    c = conn.cursor()
-    c.execute('''DROP TABLE IF EXISTS school_data;''')
-    c.execute('''CREATE TABLE IF NOT EXISTS school_data
+# create tables - may not need all_data
+def add_to_database():
+    cursor = conn.cursor()
+    cursor.execute('''DROP TABLE IF EXISTS school_data;''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS school_data
                             (
                                 school_name text,
                                 school_city text,
@@ -78,17 +78,17 @@ def add_to_database(all_data):
                             )'''
               )
 
-    c.executemany('INSERT INTO school_data VALUES (?,?,?,?,?,?,?,?)', all_data)
-    conn.commit()
-    c = conn.cursor()
 
-    c.execute('SELECT count(*) FROM school_data')
-    print(c.fetchone()[0], "total items inserted to the database")
+def save_data(all_data):
+    cursor = conn.cursor()
+    cursor.executemany('INSERT INTO school_data VALUES (?,?,?,?,?,?,?,?)', all_data)
+    conn.commit()
 
 
 def main():
     all_data = get_data()
-    add_to_database(all_data)
+    add_to_database()
+    save_data(all_data)
 
 
 if __name__ == '__main__':
