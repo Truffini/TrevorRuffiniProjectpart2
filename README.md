@@ -43,5 +43,8 @@ it provides the user the ability to do two forms of data analysis
 The first analysis displays the data in a color coded text format as a list in ascending or descending order  chosen by user
 The second renders maps to visualize the data.
 
-
+test_database does not find school_data on github but works in pycharm
+no one file to run all code 
+gui codes smells 
+gui tests insufficient
 
