@@ -6,5 +6,5 @@ PyQt5
 
 QtWidgets
 QtGui
-QWebEngineView
+
 plotly
