@@ -3,7 +3,7 @@ pandas
 openpyxl
 xlrd
 PyQt5
-QtCore
+
 QtWidgets
 QtGui
 QWebEngineView
