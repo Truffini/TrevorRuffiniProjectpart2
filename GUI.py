@@ -378,7 +378,6 @@ class WindowTwo(QtWidgets.QMainWindow):
 
             tabwidget.addTab(table_frame, "Table")
 
-
             html = '<html><body>'
             html += plotly.offline.plot(fig, output_type='div', include_plotlyjs='cdn')
             html += '</body></html>'
